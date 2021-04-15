@@ -3,16 +3,16 @@ import os
 
 # created for Python 2.7 (ArcMap for Desktop 10.6)
 # ref_path and pred_path need to be set to point into correct folders
-ref_path =  '..\\data\\split_05__05_512\\test\RGB\\' # path to the tiles used for georeferencing
-pred_path = '..\\data\\results\\rgbUnet\\' # path to the classified tiles without spatial reference
+ref_path =  '..\\data\\2012\\western\\1\\CIR\\' # path to the input tiles, their spatial reference is used for georeferencing
+pred_path = '..\\data\\2012\\western\\results\\1\\' # path to the classified tiles without spatial reference
 
 list_ref_files = os.listdir(ref_path)
 list_pred_files = os.listdir(pred_path)
 
-new_path = pred_path + 'georeferenced\\' # path to temp files, are not deleted automatically
+new_path = pred_path + 'georeferenced\\' # path to temp files, they are not deleted automatically
 os.mkdir(new_path)
 
-out_filename = 'classified.tif'
+out_filename = 'classified.tif' # Filename of the final merged raster
 
 i = 0
 for filename in list_pred_files:
@@ -22,7 +22,7 @@ for filename in list_pred_files:
     ref_raster = arcpy.Raster(ref_path + list_ref_files[i])
     i+=1
     
-    arcpy.env.outputCoordinateSystem = ref_raster.spatialReference
+    arcpy.env.outputCoordinateSystem = arcpy.SpatialReference(102065) #ref_raster.spatialReference
     arcpy.env.snapRaster = ref_raster
 
     new_file_path = new_path + filename
