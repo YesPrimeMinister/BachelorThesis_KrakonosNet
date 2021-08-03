@@ -3,8 +3,8 @@ import os
 
 # created for Python 2.7 (ArcMap for Desktop 10.6)
 # ref_path and pred_path need to be set to point into correct folders
-ref_path =  '..\\data\\2012\\western\\1\\CIR\\' # path to the input tiles, their spatial reference is used for georeferencing
-pred_path = '..\\data\\2012\\western\\results\\1\\' # path to the classified tiles without spatial reference
+ref_path =  'E:\\datasets\\test_unet\\Krkonose2012\\CIR\\' # path to the input tiles, their spatial reference is used for georeferencing
+pred_path = 'E:\\datasets\\test_unet\\Krkonose2012\\CIR\\results\\' # path to the classified tiles without spatial reference
 
 list_ref_files = os.listdir(ref_path)
 list_pred_files = os.listdir(pred_path)
