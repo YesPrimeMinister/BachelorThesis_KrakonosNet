@@ -232,7 +232,3 @@ class KrakonosNet(nn.Module):
         out = self.classifier(self.dropout(y1))
     
         return out
-
-
-if __name__ == '__main__':
-    print('This module is not supposed to be run directly, use model_training_application.ipynb instead.')
